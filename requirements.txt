@@ -7,4 +7,4 @@ aiohttp==3.6.2
 python-dotenv==0.14.0
 youtube_dl==2020.6.16.1
 requests==2.24.0
-BeautifulSoup==3.2.1
+BeautifulSoup4==4.9.1
