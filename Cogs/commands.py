@@ -71,7 +71,7 @@ class commandsList(commands.Cog):
 
 
     #To be redesigned again, & to be placed in main.py
-    @commands.command(brief='!help')
+'''    @commands.command(brief='!help')
     async def help(self, ctx):
         await ctx.channel.purge(limit=1)
         embed = discord.Embed(color=discord.Color.blue(), title='Listes des commandes')
@@ -83,7 +83,7 @@ class commandsList(commands.Cog):
                         temp.append(f"{cmd.name}\n")
                 embed.add_field(name=f'**{cog} :**', value=f"{''.join(temp)}", inline=True)
         await ctx.send(embed=embed)
-
+'''
 
 def setup(bot):
     bot.add_cog(commandsList(bot))
