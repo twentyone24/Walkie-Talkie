@@ -8,6 +8,7 @@ from discord import Game, Member
 from aiohttp import request
 from utils import *
 import json
+from frinkiac import simpsons, futurama
 
 
 
@@ -18,6 +19,15 @@ class commandsList(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         #super(commands, self).__init__()
+
+    @commands.command(name='t')
+    async def test(self, ctx, ars):
+        tellMeE = discord.Embed(title='template',
+            description=f'{name} `-p` to publish the poll or\n`-c` to cancel the poll',
+            color=0x00ff00)
+        tellMeE.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
+        tellMeE.set_footer(text=f'-poll command requested by {ctx.message.author}', icon_url=ctx.message.author.avatar_url)
+        await ctx.send(link)
 
     #Command 01: to roll a dice
     @commands.command(name='dice', aliases=['roll', 'roll dice'], help = 'Roll a dice')
@@ -36,6 +46,7 @@ class commandsList(commands.Cog):
         flipped = random.choice(coin)
         meme_templates()
         await ctx.send(flipped)
+
 
     #Command 03: to number of online members
     @commands.command(name = 'online', aliases = ['buddies'], help = 'List online members')
@@ -63,12 +74,22 @@ class commandsList(commands.Cog):
             await ctx.send(f"```He{insult}```")
 
     #Command 05: Clear Command
-    @commands.command(name = 'c',brief='!clear [x]', aliases=['delete', 'purge'])
+    @commands.command(name = 'cls',brief='!clear [x]', aliases=['delete', 'purge'])
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, limit: int = 1):
         limit = int(limit) + 1
         await ctx.channel.purge(limit=limit)
 
+    @commands.command()
+    async def simpsons(self, ctx):
+        '''Search for a Simpsons screencap and caption matching a query (or a random one if no query is given).'''
+        query = strip_command(ctx)
+        if query == '':
+            im, cap = simpsons.random()
+        else:
+            im, cap = simpsons.search(query)
+        await ctx.send(im)
+        await ctx.send(cap)
 
     #To be redesigned again, & to be placed in main.py
 '''    @commands.command(brief='!help')
