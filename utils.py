@@ -11,7 +11,8 @@ import codecs
 
 
 def template_list():
-    with open(f'{DATA_DIR}\/templatestw.json', 'r') as f:
+    DIR = os.path.join(DATA_DIR, 'templatestw.json')
+    with open(DIR, 'r') as f:
         data = json.load(f)
     data_str = json.dumps(data, indent = 2)
     results = []
