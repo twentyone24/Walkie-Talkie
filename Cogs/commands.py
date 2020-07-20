@@ -44,7 +44,6 @@ class commandsList(commands.Cog):
     async def flip(self, ctx):
         coin =  ['heads','tails']
         flipped = random.choice(coin)
-        meme_templates()
         await ctx.send(flipped)
 
 

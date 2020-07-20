@@ -11,7 +11,7 @@ import codecs
 
 
 def template_list():
-    with open(f'{DATA_DIR}\\templatestw.json', 'r') as f:
+    with open(f'{DATA_DIR}\/templatestw.json', 'r') as f:
         data = json.load(f)
     data_str = json.dumps(data, indent = 2)
     results = []
@@ -26,9 +26,6 @@ def template_list():
     results = json.dumps(results, indent = 1)
     return results
 
-
-    #for templ in data:
-#        print(templ['uuid'], templ['name'])
 
 
 def strip_command(ctx):

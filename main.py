@@ -18,7 +18,7 @@ guild = os.getenv('DISCORD_GUILD')
 #Variable Customized prfix for the commands
 def get_prefix(bot, message):
 
-    prefixes = ['-', 'lol ', 'wt ']
+    prefixes = ['-', 'Wt ', 'wt ']
 
     # On DM, ? is only allowed
     if not message.guild:

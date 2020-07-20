@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from discord.ext import commands, tasks
 from discord import Game, Member
 import aiohttp
-from aiohttp import request
 import json
 import traceback
 import requests
@@ -54,7 +53,7 @@ class apiCommands(commands.Cog):
     #Command 06: Generate your own meme
     @commands.command(name = 'meme', help = 'You can create a meme on the go!', pass_context=True)
     async def meme(self, ctx):
-        meme_json()
+        #meme_json()
         def templateSelectCheck(message):
             return message.author == ctx.message.author and message.channel == ctx.message.channel and message.content.startswith('-')
 
@@ -72,7 +71,7 @@ class apiCommands(commands.Cog):
             templateE.add_field(name=tempnam ,value = f'type -{chr(95+i)} to select this template',inline=True)
             if templ['id'] == 26:
                 break
-        templateE.set_footer(text='Type (Eg: ```-a ```) to select a template!')
+        templateE.set_footer(text='```Type (Eg: -a ) to select a template!```')
         message = await ctx.channel.send(embed=templateE)
 
         #13/07 to return a template id based on a messageText
