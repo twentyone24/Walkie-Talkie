@@ -10,9 +10,6 @@ from utils import *
 import json
 from frinkiac import simpsons, futurama
 
-
-
-
 class commandsList(commands.Cog):
     #docstring for commands.
 
